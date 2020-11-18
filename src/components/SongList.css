@@ -1,0 +1,11 @@
+.songs-list {
+  border: 1px solid #cccccc;
+  width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.song-card {
+  border: 1px solid #777;
+  padding: 1rem;
+  font-weight: 500;
+}
