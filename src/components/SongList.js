@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import uuid from "uuid/v1";
 import AddSong from "./AddSong";
 
@@ -11,9 +11,16 @@ export default function SongList() {
     { title: "Play around and around", id: 3 },
   ]);
 
+  const [age, setAge] = useState("");
+
   const addSong = (song) => {
     setSongs([...songs, { title: song, id: Math.random() }]);
   };
+
+  /* --- Getting invoked everytime the data upadtes --- */
+  useEffect(() => {
+    console.log("useEffect() ran !!!");
+  });
 
   return (
     <div className="songs-list">
@@ -24,6 +31,11 @@ export default function SongList() {
         </div>
       ))}
       <AddSong addSong={addSong} />
+
+      <div>
+        <h1>Button</h1>
+        <button onClick={() => setAge(age + 1)}>Add Age : {age}</button>
+      </div>
     </div>
   );
 }
