@@ -11,16 +11,25 @@ export default function SongList() {
     { title: "Play around and around", id: 3 },
   ]);
 
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(20);
 
   const addSong = (song) => {
     setSongs([...songs, { title: song, id: Math.random() }]);
   };
 
-  /* --- Getting invoked everytime the data upadtes --- */
+  /* --- Getting invoked everytime the data upadtes 
   useEffect(() => {
     console.log("useEffect() ran !!!");
   });
+--- */
+
+  useState(() => {
+    console.log("useEffect ran! associated with posts", songs);
+  }, [songs]);
+
+  useState(() => {
+    console.log("useEffect ran! associated with age", age);
+  }, [age]);
 
   return (
     <div className="songs-list">
@@ -34,7 +43,7 @@ export default function SongList() {
 
       <div>
         <h1>Button</h1>
-        <button onClick={() => setAge(age + 1)}>Add Age : {age}</button>
+        <button onClick={() => setAge(age + 1)}>Add 1 to Age : {age}</button>
       </div>
     </div>
   );
